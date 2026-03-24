@@ -5,14 +5,11 @@ struct NewsResponse: Codable {
     let status: String
     let totalResults: Int
     let articles: [Article]
-    
-    func mockDataNews() -> NewsResponse {
-        NewsResponse(status: <#T##String#>, totalResults: <#T##Int#>, articles: [])
-    }
 }
 
 // MARK: - Article
-struct Article: Codable {
+struct Article: Codable, Identifiable {
+    var id: String { UUID().uuidString }
     let source: Source
     let author: String?
     let title: String
